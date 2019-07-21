@@ -56,16 +56,23 @@ a img {
   width: 100vw;
 }
 
+/* image */
 .ms-display {
   display: flex;
   height: 50vh;
   justify-content: center;
-  margin: 3vh auto 4.5vh;
+  margin: 3vh auto 0.5vh;
   width: 80vw;
 }
 
 img {
   max-width: 50vw;
+}
+
+/* caption */
+.caption {
+  margin: 0 auto 4vh;
+  width: 50vw;
 }
 
 /* user input */
