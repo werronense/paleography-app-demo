@@ -26,21 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function cleanLine(e) {
-    var lineId = e.target.id;
-    var currentLine = document.getElementById(lineId);
-    var textLine = lineId.slice(lineId.length - 1) - 1;
+    const lineId = e.target.id;
+    const currentLine = document.getElementById(lineId);
+    const textLine = lineId.slice(lineId.length - 1) - 1;
 
-    for (var currentNode = currentLine.firstChild; currentNode; currentNode = currentNode.nextSibling) {
+    for (let currentNode = currentLine.firstChild; currentNode; currentNode = currentNode.nextSibling) {
       if (!currentNode.textContent) {
         currentLine.removeChild(currentNode);
-        //console.log('empty node');
       } else if (currentNode.nodeType === 3 || currentNode.textContent.length > 1) {
-        var content = currentNode.textContent;
-        var contentLength = content.length;
+        let content = currentNode.textContent;
+        const contentLength = content.length;
 
-        for (var i = 0; i < contentLength; i++) {
-          var newSpan = document.createElement('span');
-          var newTextNode = document.createTextNode(content.slice(0, 1));
+        for (let i = 0; i < contentLength; i++) {
+          const newSpan = document.createElement('span');
+          const newTextNode = document.createTextNode(content.slice(0, 1));
           content = content.slice(1);
 
           //add text to new span
@@ -58,15 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function assessInput(e) {
-    var lineId = e.target.id;
-    var currentLine = document.getElementById(lineId);
-    var textLine = lineId.slice(lineId.length - 1) - 1;
-    var letterArray = [];
-    var nodeIndex = 0;
+    const lineId = e.target.id;
+    const currentLine = document.getElementById(lineId);
+    const textLine = lineId.slice(lineId.length - 1) - 1;
+    let letters = [];
+    let nodeIndex = 0;
 
-    for (var currentNode = currentLine.firstChild; currentNode; currentNode = currentNode.nextSibling) {
-      var letter = currentNode.textContent;
-      letterArray.push(letter);
+    for (let currentNode = currentLine.firstChild; currentNode; currentNode = currentNode.nextSibling) {
+      const letter = currentNode.textContent;
+      letters.push(letter);
 
       if (letter !== transcription[textLine][nodeIndex]) {
         currentNode.setAttribute('class', 'incorrect');
@@ -76,21 +75,19 @@ document.addEventListener("DOMContentLoaded", () => {
       nodeIndex++;
     }
 
-    //attempt to deal with &nbsp issue; successful
-    letterArray = letterArray.map(function(char) {
+    // resolves an issue with &nbsp characters in some browsers
+    letters = letters.map((char) => {
       if (char.charCodeAt(0) === 160) {
         return ' ';
       } else {
         return char;
       }
     });
-    //console.log(letterArray); //test
 
-    if (letterArray.join('') === transcription[textLine]) {
+    if (letters.join('') === transcription[textLine]) {
       currentLine.classList.add("entry-perfect");
       currentLine.blur();
       currentLine.setAttribute('contenteditable', 'false');
-      //console.log(currentLine); //test
     }
   }
 
