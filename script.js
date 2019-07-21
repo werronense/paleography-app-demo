@@ -1,3 +1,14 @@
+const transcription = [
+  "Veni creator sp(irit)us men",
+  "tes tuorum uisita i(m)",
+  "ple superna gratia que tu",
+  "creasti peccora",
+  "Memento salutis auctor",
+  "quod n(ost)ri quondam corporis",
+  "ex illibata uirgine nascendo",
+  "formam sumpseris"
+]
+
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector(".user-input");
 
