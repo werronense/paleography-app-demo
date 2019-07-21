@@ -84,3 +84,8 @@ img {
 #line-1 {
   border-top: 1px solid gray;
 }
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
