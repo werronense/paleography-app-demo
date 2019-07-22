@@ -53,6 +53,7 @@ a img {
   background-color: #222;
   display: flex;
   flex-direction: column;
+  font-family: sans-serif;
   height: 100vh;
   width: 100vw;
 }
@@ -77,12 +78,13 @@ img {
 }
 
 .caption a {
+  color: #fcaa40;
   text-decoration: none;
 }
 
 .caption a:hover,
 .caption a:visited {
-  color: #fcaa40;
+  color: #fc4c40;
 }
 
 /* user input */
@@ -98,14 +100,23 @@ img {
   border-right: 1px solid gray;
   height: 2em;
   opacity: 0.9;
-  padding-top: 0.5em;
+  padding: 0.5em 0.5em 0;
 }
 
 #line-1 {
   border-top: 1px solid gray;
 }
 
+.line:focus,
+#line-1:focus {
+  background-color: #f4e366;
+}
+
 .incorrect {
-  color: red;
+  color: #fc4c40;
   font-weight: bold;
+}
+
+.entry-perfect {
+  background-color: #1cf16e;
 }
