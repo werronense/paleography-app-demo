@@ -50,6 +50,7 @@ a img {
 }
 
 .container {
+  background-color: #222;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -71,8 +72,17 @@ img {
 
 /* caption */
 .caption {
-  margin: 0 auto 4vh;
+  margin: 0 auto 3vh;
   width: 50vw;
+}
+
+.caption a {
+  text-decoration: none;
+}
+
+.caption a:hover,
+.caption a:visited {
+  color: #fcaa40;
 }
 
 /* user input */
@@ -82,10 +92,13 @@ img {
 }
 
 .line {
+  background-color: #fff;
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
   height: 2em;
+  opacity: 0.9;
+  padding-top: 0.5em;
 }
 
 #line-1 {
