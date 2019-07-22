@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
     }
-    //console.log(currentLine); //test
   }
 
   function assessInput(e) {
@@ -86,8 +85,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (letters.join('') === transcription[textLine]) {
       currentLine.classList.add("entry-perfect");
-      currentLine.blur();
       currentLine.setAttribute('contenteditable', 'false');
+      currentLine.blur();
+
+      // searches for a new line to assign focus
+      const allLines = document.querySelectorAll(".line");
+      const incomplete = Array.from(allLines).filter(node => node.getAttribute("contenteditable") === "true");
+      //console.log(incomplete);
+      if (incomplete.length > 0) {
+        const focusTarget = incomplete[0].getAttribute("id");
+        //console.log(document.querySelector(`#${focusTarget}`));
+        document.querySelector(`#${focusTarget}`).focus();
+      }
     }
   }
 
