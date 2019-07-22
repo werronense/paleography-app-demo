@@ -58,6 +58,12 @@ a img {
   width: 100vw;
 }
 
+
+/* instructions */
+.instructions {
+
+}
+
 /* image */
 .ms-display {
   display: flex;
